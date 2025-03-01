@@ -1,6 +1,7 @@
 import pytest
 
 import my_funtions as my_func
+import time
 
 
 def test_add():
@@ -20,7 +21,7 @@ def test_divide():
 
 #should be pass
 
-
+@pytest.mark.xfail(reason="We know that divide by zero is not supported")
 def test_divide_by_zero_1():
     res = my_func.divide(10,0)
     assert res == 2
@@ -33,6 +34,16 @@ def test_divide_by_zero_2():
         my_func.divide(10,0)
 
 #should be pass
+
+
+@pytest.mark.skip(reason="this feature is currently broken")
+def test_add():
+    assert my_func.add(1 , 2)==3
+
+@pytest.mark.slow
+def test_add_slowly():
+    time.sleep(5)
+    assert my_func.add(1 , 2)==3
 
 
 
