@@ -1,2 +1,2 @@
 # Python-Pytest
-in this repo i want to learn about pytest
+In This Repo I Want to Learn about Pytest
